@@ -1,5 +1,5 @@
 {
-    "name": "pops-tracker",
+    "name": "popstracker",
     "version": "0.0.1",
     "description": "Dementia Patient Tracking App",
     "main": "index.js",
