@@ -5,4 +5,18 @@ const db = require('../database');
 
 module.exports = db.define('task', {
     // add all labels
+    type: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }, 
+    mealtype: {
+        type: Sequelize.STRING
+    },
+    date: {
+        type: Sequelize.DATE,
+        allowNull: false
+    },
+    description: {
+        type: Sequelize.TEXT
+    }
 })

@@ -4,5 +4,13 @@ const db = require('../database');
 // MODULE CREATED // 
 
 module.exports = db.define('caretaker', {
-    // add labels
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    day: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
+    // weekend??? 
 })
