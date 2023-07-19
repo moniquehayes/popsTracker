@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Caretakers from './Caretakers';
+import Tasks from './Tasks';
 
 //import components//
 
@@ -10,6 +11,8 @@ const Main = () => {
         <div>
             <h1>Pops</h1>
             <Caretakers/>
+            <br></br>
+            <Tasks/>
         </div>
     )
 }
