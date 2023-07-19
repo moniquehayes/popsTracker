@@ -10,7 +10,6 @@ module.exports = db.define('caretaker', {
     },
     day: {
         type: Sequelize.STRING,
-        allowNull: false
     }
     // weekend??? 
 })

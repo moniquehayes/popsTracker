@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-
+import Caretakers from './Caretakers';
 
 //import components//
 
@@ -9,6 +9,7 @@ const Main = () => {
     return (
         <div>
             <h1>Pops</h1>
+            <Caretakers/>
         </div>
     )
 }

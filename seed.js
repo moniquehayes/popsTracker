@@ -31,8 +31,8 @@ const seed = async () => {
         caretakers.push(julie, michael, yvette, adele, adrienne, karen);
 
         //NOW MAKE RANDOM TASKS
-        const types = [shower, meal, exercise];
-        const mealtypes = [breakfast, lunch, dinner];
+        const types = ["shower", "meal", "exercise"];
+        const mealtypes = ["breakfast", "lunch", "dinner"];
         // make 20 tasks, make sure to add date to each. description can be lorem. will have to set caretaker for random
         for (let i=1; i<21; i++) {
             const randomTask = Math.floor((Math.random()) * 3);
