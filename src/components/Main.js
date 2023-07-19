@@ -8,7 +8,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 const Main = () => {
     return (
         <div>
-
+            <h1>Pops</h1>
         </div>
     )
 }

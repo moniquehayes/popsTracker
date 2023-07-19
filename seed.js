@@ -31,6 +31,21 @@ const seed = async () => {
         caretakers.push(julie, michael, yvette, adele, adrienne, karen);
 
         //NOW MAKE RANDOM TASKS
+        const types = [shower, meal, exercise];
+        const mealtypes = [breakfast, lunch, dinner];
+        // make 20 tasks, make sure to add date to each. description can be lorem. will have to set caretaker for random
+        for (let i=1; i<21; i++) {
+            const randomTask = Math.floor((Math.random()) * 3);
+            const randomTaskName = types[randomTask];
+            const meal = randomTaskName === 'meal' ? mealtypes[randomTask] : null;
+            const randomCaretaker = Math.floor((Math.random()) * 6);
+            const task = await Task.create({
+                type: randomTaskName,
+                mealtype: meal, 
+                description: 'Congue quisque egestas diam in arcu cursus. Et ultrices neque ornare aenean euismod elementum nisi quis eleifend. Viverra justo nec ultrices dui sapien eget mi proin. Augue lacus viverra vitae congue eu consequat ac. Pellentesque habitant morbi tristique senectus et netus. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Feugiat sed lectus vestibulum mattis. Bibendum arcu vitae elementum curabitur vitae. Nulla posuere sollicitudin aliquam ultrices sagittis orci. Aliquam etiam erat velit scelerisque in dictum'
+            })
+            task.setCaretaker(caretakers[randomCaretaker]);
+        }
 
     } catch(err) {
         console.error(err)
