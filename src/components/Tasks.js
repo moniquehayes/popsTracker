@@ -13,7 +13,7 @@ const Tasks = () => {
 
     return (
         <>
-        <h1>Tasks</h1>
+        <h1 className='bg-green-300 border-green-600'>Tasks</h1>
         <ul>
             {tasks.length ? tasks.map((task) => {
                 return (

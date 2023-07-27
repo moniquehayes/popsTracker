@@ -9,8 +9,8 @@ import Tasks from './Tasks';
 const Main = () => {
     return (
         <div>
-            <h1>Pops</h1>
-            <Caretakers/>
+            <h1>Pops Tracker</h1>
+            {/* <Caretakers/> */}
             <br></br>
             <Tasks/>
         </div>
