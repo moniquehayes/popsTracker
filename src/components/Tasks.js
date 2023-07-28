@@ -21,6 +21,7 @@ const Tasks = () => {
                 )
             }): 'no tasks documented'}
         </ul>
+        <button className="btn btn-primary">Button</button>
         </>
     )
 };

@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,js}",
-  "./public/**/*.{html,js}",],
+  "./public/index.html",],
   theme: {
     extend: {
       fontFamily: {
@@ -9,6 +9,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
 
