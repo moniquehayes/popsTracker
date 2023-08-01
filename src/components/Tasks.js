@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux"; 
 import { fetchTasksAsync, selectTasks, fetchMostRecent } from "../store/taskSlice";
+import AddTask from "./AddTask";
 
 const Tasks = () => {
     const dispatch = useDispatch();
@@ -67,6 +68,7 @@ const Tasks = () => {
             <h5>Underwear Change: </h5>
         </div>
         </div>
+        <AddTask/>
         </>
     )
 };

@@ -6,7 +6,7 @@ export const fetchTasksAsync = createAsyncThunk("tasks", async () => {
     return data;
 });
 
-export const addTaskAsync = createAsyncThunk('tasks/addtask', async ({type, mealtype, data, description}) => {
+export const addTaskAsync = createAsyncThunk('tasks/addtask', async ({type, mealtype, date, description}) => {
     try {
         const {data} = await axios.post('api/tasks', {
             type,
