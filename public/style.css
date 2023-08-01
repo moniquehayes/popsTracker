@@ -3,5 +3,12 @@
 @tailwind utilities;
 
 h1 {
-    color: purple
+    color: purple;
+    text-align: center;
+}
+
+#task-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

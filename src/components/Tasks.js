@@ -14,6 +14,9 @@ const Tasks = () => {
     return (
         <>
         <h1 className='bg-green-300 border-green-600'>Tasks</h1>
+        {/**basically want task list on left, most recent categories on right. */}
+        <div id='task-container'> 
+        <div>
         <ul>
             {tasks.length ? tasks.map((task) => {
                 return (
@@ -21,7 +24,15 @@ const Tasks = () => {
                 )
             }): 'no tasks documented'}
         </ul>
-        <button className="btn btn-primary">Button</button>
+        </div>
+        <div>
+            <h3>Most Recent</h3>
+            <h5>Shower: </h5>
+            <h5>Meal: </h5>
+            <h5>Exercise: </h5>
+            <h5>Underwear Change: </h5>
+        </div>
+        </div>
         </>
     )
 };
