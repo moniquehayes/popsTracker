@@ -8740,6 +8740,7 @@ var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_2__.configureStore)({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   addTaskAsync: () => (/* binding */ addTaskAsync),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   fetchTasksAsync: () => (/* binding */ fetchTasksAsync),
 /* harmony export */   selectTasks: () => (/* binding */ selectTasks),
@@ -8771,23 +8772,39 @@ var fetchTasksAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsy
     }
   }, _callee);
 })));
-
-// export const fetchMostRecent = createAsyncThunk("mostRecent", async (type) => {
-//     const {data} = await axios.get("api/tasks");
-//     const filteredTasks = data.filter((task) => task.type === type);
-//     let mostRecent = filteredTasks[0];
-//     if (filteredTasks.length > 1) {
-//         for (let i=1; i<filteredTasks.length; i++) {
-//             const task = filteredTasks[i];
-//             if (task.date > mostRecent.date) {
-//                 mostRecent = task
-//             }
-//         }
-//     }
-//     console.log(mostRecent);
-//     return mostRecent;
-// })
-
+var addTaskAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)('tasks/addtask', /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(_ref2) {
+    var type, mealtype, data, description, _yield$axios$post, _data;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
+        case 0:
+          type = _ref2.type, mealtype = _ref2.mealtype, data = _ref2.data, description = _ref2.description;
+          _context2.prev = 1;
+          _context2.next = 4;
+          return axios__WEBPACK_IMPORTED_MODULE_0___default().post('api/tasks', {
+            type: type,
+            mealtype: mealtype,
+            date: date,
+            description: description
+          });
+        case 4:
+          _yield$axios$post = _context2.sent;
+          _data = _yield$axios$post.data;
+          return _context2.abrupt("return", _data);
+        case 9:
+          _context2.prev = 9;
+          _context2.t0 = _context2["catch"](1);
+          console.error(_context2.t0);
+        case 12:
+        case "end":
+          return _context2.stop();
+      }
+    }, _callee2, null, [[1, 9]]);
+  }));
+  return function (_x) {
+    return _ref3.apply(this, arguments);
+  };
+}());
 var tasksSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
   name: 'tasks',
   initialState: [],
@@ -8795,6 +8812,9 @@ var tasksSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
   extraReducers: function extraReducers(builder) {
     builder.addCase(fetchTasksAsync.fulfilled, function (state, action) {
       return action.payload;
+    });
+    builder.addCase(addTaskAsync.fulfilled, function (state, action) {
+      state.push(action.payload);
     });
   }
 });
