@@ -13,19 +13,13 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-// // == single task
-// router.get('/:id', async (req, res, next) => {
-//     try {
-//         const task = await Task.findOne({
-//             where: {id: req.params.id},
-//             include:
-//             Caretaker
-//         });
-//         res.send(task);
-//     } catch(error) {
-//         next(error)
-//     }
-// })
-
+// // == add new task
+router.post('/', async (req, res, next) => {
+    try {
+        res.send(await Task.create(req.body))
+    } catch(error) {
+        next(error)
+    }
+})
 
 module.exports = router;
