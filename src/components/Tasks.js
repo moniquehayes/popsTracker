@@ -1,20 +1,51 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux"; 
-import { fetchTasksAsync, selectTasks } from "../store/taskSlice";
+import { fetchTasksAsync, selectTasks, fetchMostRecent } from "../store/taskSlice";
 
 const Tasks = () => {
     const dispatch = useDispatch();
     const tasks = useSelector(selectTasks);
-    console.log(tasks)
 
     useEffect(() => {
         dispatch(fetchTasksAsync())
     }, []);
 
+    const filteredShowers = tasks.filter((task) => task.type === 'shower');
+    let mostRecentShower = filteredShowers[0];
+        if (filteredShowers.length > 1) {
+            for (let i=1; i<filteredShowers.length; i++) {
+                const task = filteredShowers[i];
+                if (task.date > mostRecentShower.date) {
+                    mostRecentShower = task
+                }
+            }
+        }
+
+    const filteredMeals = tasks.filter((task) => task.type === 'meal');
+    let mostRecentMeal = filteredMeals[0];
+        if (filteredMeals.length > 1) {
+            for (let i=1; i<filteredMeals.length; i++) {
+                const task = filteredMeals[i];
+                if (task.date > mostRecentMeal.date) {
+                    mostRecentMeal = task
+                }
+            }
+        }
+    
+    const filteredExercises = tasks.filter((task) => task.type === 'exercise');
+    let mostRecentExercise = filteredExercises[0];
+        if (filteredExercises.length > 1) {
+            for (let i=1; i<filteredExercises.length; i++) {
+                const task = filteredExercises[i];
+                if (task.date > mostRecentExercise.date) {
+                    mostRecentExercise = task
+                }
+            }
+        }
+
     return (
         <>
         <h1 className='bg-green-300 border-green-600'>Tasks</h1>
-        {/**basically want task list on left, most recent categories on right. */}
         <div id='task-container'> 
         <div>
         <ul>
@@ -28,8 +59,11 @@ const Tasks = () => {
         <div>
             <h3>Most Recent</h3>
             <h5>Shower: </h5>
+            <p>{mostRecentShower ? mostRecentShower.date : 'No showers documented'}</p>
             <h5>Meal: </h5>
+            <p>{mostRecentMeal ? `${mostRecentMeal.mealtype} at ${mostRecentMeal.date}` : 'No meals documented'}</p>
             <h5>Exercise: </h5>
+            <p>{mostRecentMeal ? mostRecentExercise.date : 'No exercises documented'}</p>
             <h5>Underwear Change: </h5>
         </div>
         </div>

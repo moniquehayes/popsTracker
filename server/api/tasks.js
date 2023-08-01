@@ -13,5 +13,19 @@ router.get('/', async (req, res, next) => {
     }
 })
 
+// // == single task
+// router.get('/:id', async (req, res, next) => {
+//     try {
+//         const task = await Task.findOne({
+//             where: {id: req.params.id},
+//             include:
+//             Caretaker
+//         });
+//         res.send(task);
+//     } catch(error) {
+//         next(error)
+//     }
+// })
+
 
 module.exports = router;

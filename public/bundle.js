@@ -8592,10 +8592,45 @@ __webpack_require__.r(__webpack_exports__);
 var Tasks = function Tasks() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var tasks = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(_store_taskSlice__WEBPACK_IMPORTED_MODULE_2__.selectTasks);
-  console.log(tasks);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_store_taskSlice__WEBPACK_IMPORTED_MODULE_2__.fetchTasksAsync)());
   }, []);
+  var filteredShowers = tasks.filter(function (task) {
+    return task.type === 'shower';
+  });
+  var mostRecentShower = filteredShowers[0];
+  if (filteredShowers.length > 1) {
+    for (var i = 1; i < filteredShowers.length; i++) {
+      var task = filteredShowers[i];
+      if (task.date > mostRecentShower.date) {
+        mostRecentShower = task;
+      }
+    }
+  }
+  var filteredMeals = tasks.filter(function (task) {
+    return task.type === 'meal';
+  });
+  var mostRecentMeal = filteredMeals[0];
+  if (filteredMeals.length > 1) {
+    for (var _i = 1; _i < filteredMeals.length; _i++) {
+      var _task = filteredMeals[_i];
+      if (_task.date > mostRecentMeal.date) {
+        mostRecentMeal = _task;
+      }
+    }
+  }
+  var filteredExercises = tasks.filter(function (task) {
+    return task.type === 'exercise';
+  });
+  var mostRecentExercise = filteredExercises[0];
+  if (filteredExercises.length > 1) {
+    for (var _i2 = 1; _i2 < filteredExercises.length; _i2++) {
+      var _task2 = filteredExercises[_i2];
+      if (_task2.date > mostRecentExercise.date) {
+        mostRecentExercise = _task2;
+      }
+    }
+  }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
     className: "bg-green-300 border-green-600"
   }, "Tasks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -8604,7 +8639,7 @@ var Tasks = function Tasks() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
       key: task.id
     }, task.type, ", ", task.date);
-  }) : 'no tasks documented')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Most Recent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "Shower: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "Meal: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "Exercise: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "Underwear Change: "))));
+  }) : 'no tasks documented')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Most Recent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "Shower: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, mostRecentShower ? mostRecentShower.date : 'No showers documented'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "Meal: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, mostRecentMeal ? "".concat(mostRecentMeal.mealtype, " at ").concat(mostRecentMeal.date) : 'No meals documented'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "Exercise: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, mostRecentMeal ? mostRecentExercise.date : 'No exercises documented'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "Underwear Change: "))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tasks);
 
@@ -8736,6 +8771,23 @@ var fetchTasksAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsy
     }
   }, _callee);
 })));
+
+// export const fetchMostRecent = createAsyncThunk("mostRecent", async (type) => {
+//     const {data} = await axios.get("api/tasks");
+//     const filteredTasks = data.filter((task) => task.type === type);
+//     let mostRecent = filteredTasks[0];
+//     if (filteredTasks.length > 1) {
+//         for (let i=1; i<filteredTasks.length; i++) {
+//             const task = filteredTasks[i];
+//             if (task.date > mostRecent.date) {
+//                 mostRecent = task
+//             }
+//         }
+//     }
+//     console.log(mostRecent);
+//     return mostRecent;
+// })
+
 var tasksSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
   name: 'tasks',
   initialState: [],
