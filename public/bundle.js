@@ -8534,7 +8534,7 @@ var AddTask = function AddTask() {
     _useState2 = _slicedToArray(_useState, 2),
     type = _useState2[0],
     setType = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState4 = _slicedToArray(_useState3, 2),
     mealtype = _useState4[0],
     setMealtype = _useState4[1];
@@ -8542,7 +8542,7 @@ var AddTask = function AddTask() {
     _useState6 = _slicedToArray(_useState5, 2),
     date = _useState6[0],
     setDate = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState8 = _slicedToArray(_useState7, 2),
     description = _useState8[0],
     setDescription = _useState8[1];
@@ -8562,9 +8562,9 @@ var AddTask = function AddTask() {
             }));
           case 3:
             setType('');
-            setMealtype(null);
+            setMealtype();
             setDate('');
-            setDescription(null);
+            setDescription();
           case 7:
           case "end":
             return _context.stop();
@@ -8687,7 +8687,7 @@ __webpack_require__.r(__webpack_exports__);
 // entry point for routes //
 var Main = function Main() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
-    "class": "text-3xl font-bold underline"
+    className: "text-3xl font-bold underline"
   }, "Pops Tracker"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
     path: "/tasks",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Tasks__WEBPACK_IMPORTED_MODULE_2__["default"], null)

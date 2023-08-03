@@ -9,7 +9,7 @@ import Tasks from "./Tasks";
 const Main = () => {
   return (
     <div>
-      <h1 class="text-3xl font-bold underline">Pops Tracker</h1>
+      <h1 className="text-3xl font-bold underline">Pops Tracker</h1>
       {/* <Caretakers/> */}
       <br></br>
       {/* <Tasks/> */}

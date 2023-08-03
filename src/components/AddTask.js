@@ -4,9 +4,9 @@ import { addTaskAsync } from '../store/taskSlice';
 
 const AddTask = () => {
     const [type, setType] = useState('');
-    const [mealtype, setMealtype] = useState(null);
+    const [mealtype, setMealtype] = useState();
     const [date, setDate] = useState('');
-    const [description, setDescription] = useState(null);
+    const [description, setDescription] = useState();
 
     const dispatch = useDispatch();
 
@@ -14,9 +14,9 @@ const AddTask = () => {
         evt.preventDefault();
         await dispatch(addTaskAsync({type, mealtype, date, description}));
         setType('');
-        setMealtype(null);
+        setMealtype();
         setDate('')
-        setDescription(null);
+        setDescription();
     }
 
     return (
