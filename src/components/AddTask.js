@@ -4,9 +4,9 @@ import { addTaskAsync } from '../store/taskSlice';
 
 const AddTask = () => {
     const [type, setType] = useState('');
-    const [mealtype, setMealtype] = useState();
+    const [mealtype, setMealtype] = useState('');
     const [date, setDate] = useState('');
-    const [description, setDescription] = useState();
+    const [description, setDescription] = useState('');
 
     const dispatch = useDispatch();
 
