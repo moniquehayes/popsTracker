@@ -14,9 +14,9 @@ const AddTask = () => {
         evt.preventDefault();
         await dispatch(addTaskAsync({type, mealtype, date, description}));
         setType('');
-        setMealtype();
+        setMealtype('');
         setDate('')
-        setDescription();
+        setDescription('');
     }
 
     return (
