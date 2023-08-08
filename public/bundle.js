@@ -8544,8 +8544,12 @@ var AddTask = function AddTask() {
     setDate = _useState6[1];
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState8 = _slicedToArray(_useState7, 2),
-    description = _useState8[0],
-    setDescription = _useState8[1];
+    time = _useState8[0],
+    setTime = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState10 = _slicedToArray(_useState9, 2),
+    description = _useState10[0],
+    setDescription = _useState10[1];
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var handleSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(evt) {
@@ -8558,14 +8562,16 @@ var AddTask = function AddTask() {
               type: type,
               mealtype: mealtype,
               date: date,
+              time: time,
               description: description
             }));
           case 3:
             setType('');
             setMealtype('');
             setDate('');
+            setTime('');
             setDescription('');
-          case 7:
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -8610,6 +8616,15 @@ var AddTask = function AddTask() {
         return setDate(e.target.value);
       }
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+      htmlFor: "time",
+      onSubmit: handleSubmit
+    }, "Time"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+      name: "time",
+      value: time,
+      onChange: function onChange(e) {
+        return setTime(e.target.value);
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
       htmlFor: "description",
       onSubmit: handleSubmit
     }, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
@@ -8620,7 +8635,7 @@ var AddTask = function AddTask() {
       }
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
       type: "submit"
-    }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Note: date and time will be added when task is submitted")))
+    }, "Submit")))
   );
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddTask);
@@ -8937,17 +8952,18 @@ var fetchTasksAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsy
 })));
 var addTaskAsync = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)('tasks/addtask', /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(_ref2) {
-    var type, mealtype, date, description, _yield$axios$post, data;
+    var type, mealtype, date, time, description, _yield$axios$post, data;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          type = _ref2.type, mealtype = _ref2.mealtype, date = _ref2.date, description = _ref2.description;
+          type = _ref2.type, mealtype = _ref2.mealtype, date = _ref2.date, time = _ref2.time, description = _ref2.description;
           _context2.prev = 1;
           _context2.next = 4;
           return axios__WEBPACK_IMPORTED_MODULE_0___default().post('api/tasks', {
             type: type,
             mealtype: mealtype,
             date: date,
+            time: time,
             description: description
           });
         case 4:

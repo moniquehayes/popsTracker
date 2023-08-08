@@ -6,16 +6,18 @@ const AddTask = () => {
     const [type, setType] = useState('');
     const [mealtype, setMealtype] = useState('');
     const [date, setDate] = useState('');
+    const [time, setTime] = useState('')
     const [description, setDescription] = useState('');
 
     const dispatch = useDispatch();
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        await dispatch(addTaskAsync({type, mealtype, date, description}));
+        await dispatch(addTaskAsync({type, mealtype, date, time, description}));
         setType('');
         setMealtype('');
         setDate('')
+        setTime('')
         setDescription('');
     }
 
@@ -41,11 +43,16 @@ const AddTask = () => {
         {/** may need to make it so that if can technically allow null, but then just keep the defaultvalue so that when created that column still populates. And that means it wouldn't need to be passed through the slice */}
 
                  <label htmlFor='date' onSubmit={handleSubmit}>Date</label> 
-                    {/** need to update the input type!! make it date format - could select from calendar or dropdown? */}
                 <input
                     name='date'
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
+                ></input>
+                <label htmlFor='time' onSubmit={handleSubmit}>Time</label> 
+                <input
+                    name='time'
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
                 ></input>
                 <label htmlFor='description' onSubmit={handleSubmit}>Description</label>
                 <input
@@ -55,8 +62,6 @@ const AddTask = () => {
                 ></input>
                 {/** make note of which are required!! */}
                 <button type='submit'>Submit</button>
-                <p>Note: date and time will be added when task is submitted</p>
-
             </form>
         </div>
     )
