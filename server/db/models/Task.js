@@ -13,9 +13,13 @@ module.exports = db.define('task', {
         type: Sequelize.STRING
     },
     date: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false, 
-        defaultValue: Sequelize.fn('NOW')
+        // defaultValue: Sequelize.fn('NOW')
+    },
+    time: {
+        type: Sequelize.STRING,
+        allowNull: false, 
     },
     description: {
         type: Sequelize.TEXT
