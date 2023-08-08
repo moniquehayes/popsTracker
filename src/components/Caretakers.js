@@ -14,7 +14,7 @@ const Caretakers = () => {
         <>
         <div>
             <h1>Caretakers</h1>
-            <div></div>
+            <div>
             <ul>
                 {caretakers.length ? caretakers.map((person) => {
                     return (
@@ -22,6 +22,10 @@ const Caretakers = () => {
                     )
                 }) : 'none'}
             </ul>
+            <div>
+                <h3>This weekend's Caretaker: </h3>
+            </div>
+            </div>
         </div>
         </>
     )

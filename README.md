@@ -6,7 +6,7 @@ Figma: https://www.figma.com/file/sVzM3zouhEk9xaG3JQThfQ/Pops-Tracker?type=desig
 2. Calendar on Home page
 3. Tasks route and endpoint
     - this page should also have a notes piece
-        - need to create Sequelize model
+        - need to create Sequelize model for notes
 4. Schedule route and endpoint
     - this page should also have a place to put in change requests
         - would need to create Sequelize model for them

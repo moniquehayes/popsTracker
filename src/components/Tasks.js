@@ -11,12 +11,14 @@ const Tasks = () => {
         dispatch(fetchTasksAsync())
     }, []);
 
+    // TO FIND MOST RECENT NOW HAVE TO CHANGE: 
+    // target the createdAt key that Sequelize creates. 
     const filteredShowers = tasks.filter((task) => task.type === 'shower');
     let mostRecentShower = filteredShowers[0];
         if (filteredShowers.length > 1) {
             for (let i=1; i<filteredShowers.length; i++) {
                 const task = filteredShowers[i];
-                if (task.date > mostRecentShower.date) {
+                if (task.createdAt > mostRecentShower.createdAt) {
                     mostRecentShower = task
                 }
             }
@@ -27,7 +29,7 @@ const Tasks = () => {
         if (filteredMeals.length > 1) {
             for (let i=1; i<filteredMeals.length; i++) {
                 const task = filteredMeals[i];
-                if (task.date > mostRecentMeal.date) {
+                if (task.createdAt > mostRecentMeal.createdAt) {
                     mostRecentMeal = task
                 }
             }
@@ -38,7 +40,7 @@ const Tasks = () => {
         if (filteredExercises.length > 1) {
             for (let i=1; i<filteredExercises.length; i++) {
                 const task = filteredExercises[i];
-                if (task.date > mostRecentExercise.date) {
+                if (task.createdAt > mostRecentExercise.createdAt) {
                     mostRecentExercise = task
                 }
             }
@@ -51,8 +53,9 @@ const Tasks = () => {
         <div>
         <ul>
             {tasks.length ? tasks.map((task) => {
+                console.log(task)
                 return (
-                    <li key={task.id}>{task.type}, {task.date}</li>
+                    <li key={task.id}>{task.type}, {task.date}, {task.time}</li>
                 )
             }): 'no tasks documented'}
         </ul>
@@ -60,7 +63,7 @@ const Tasks = () => {
         <div>
             <h3>Most Recent</h3>
             <h5>Shower: </h5>
-            <p>{mostRecentShower ? mostRecentShower.date : 'No showers documented'}</p>
+            <p>{mostRecentShower ? `${mostRecentShower.date} at ${mostRecentShower.time}` : 'No showers documented'}</p>
             <h5>Meal: </h5>
             <p>{mostRecentMeal ? `${mostRecentMeal.mealtype} at ${mostRecentMeal.date}` : 'No meals documented'}</p>
             <h5>Exercise: </h5>

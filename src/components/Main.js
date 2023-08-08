@@ -11,10 +11,9 @@ const Main = () => {
     <div>
       <Navbar/>
       <h1 className="text-3xl font-bold underline">Pops Tracker</h1>
-      {/* <Caretakers/> */}
       <br></br>
-      {/* <Tasks/> */}
       <Routes>
+        {/**add a Home route to / that has the calendar */}
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/caretakers" element={<Caretakers/>}/>
       </Routes>
