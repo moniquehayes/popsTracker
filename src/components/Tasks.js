@@ -53,7 +53,6 @@ const Tasks = () => {
         <div>
         <ul>
             {tasks.length ? tasks.map((task) => {
-                console.log(task)
                 return (
                     <li key={task.id}>{task.type}, {task.date}, {task.time}</li>
                 )
