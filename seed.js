@@ -1,4 +1,4 @@
-const { db, Caretaker, Task } = require('./server/db');
+const { db, Caretaker, Task, Assignment } = require('./server/db');
 
 const seed = async () => {
     try {
@@ -54,7 +54,32 @@ const seed = async () => {
             })
             task.setCaretaker(caretakers[randomCaretaker]);
         }
-
+      // manually created assignments to test
+      const first = await Assignment.create({
+        startDate: "2023-07-14",
+        endDate: "2023-07-16"
+      }); 
+      first.setCaretaker(julie) 
+      const second = await Assignment.create({
+        startDate: "2023-07-21",
+        endDate: "2023-07-23"
+      }); 
+      second.setCaretaker(michael) 
+      const third = await Assignment.create({
+        startDate: "2023-07-28",
+        endDate: "2023-07-30"
+      }); 
+      third.setCaretaker(yvette) 
+      const fourth = await Assignment.create({
+        startDate: "2023-08-04",
+        endDate: "2023-08-06"
+      }); 
+      fourth.setCaretaker(adele)       
+      const fifth = await Assignment.create({
+        startDate: "2023-08-11",
+        endDate: "2023-08-13"
+      }); 
+      fifth.setCaretaker(adrienne) 
     } catch(err) {
         console.error(err)
     }
