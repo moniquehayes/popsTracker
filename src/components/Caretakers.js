@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCaretakersAsync, selectCaretakers } from '../store/caretakerSlice';
+import { fetchCaretakersAsync, selectCaretakers, fetchSingleCaretaker } from '../store/caretakerSlice';
 import { selectAssignments, fetchAssignmentsAsync } from '../store/assignmentSlice';
 
 const Caretakers = () => {
@@ -29,10 +29,10 @@ const Caretakers = () => {
                 <h3>Weekend Assignments:</h3>
                     <ul>
                         {assignments.length? assignments.map((weekend) => {
-                            console.log(weekend)
-                            // to get caretaker name, will have to use a fetch that accesses the id
+                            const caretakerName = caretakers.filter((care) => care.id === weekend.caretakerId);
+                            const name = caretakerName[0]
                             return (
-                                <li key={weekend.id}>{weekend.startDate} - {weekend.endDate}</li>
+                                <li key={weekend.id}>{weekend.startDate} - {weekend.endDate}: {name.name}</li>
                             )
                         }) : 'none'}
                     </ul>
